@@ -1,5 +1,8 @@
-FROM node:4.5.0
+FROM mhart/alpine-node:4.5.0
 MAINTAINER Anthony Hastings <ar.hastings@gmail.com>
+
+# Installing bash.
+RUN apk add --no-cache bash bash-doc bash-completion
 
 # Create a directory (to house our source files) and navigate to it.
 WORKDIR /src
@@ -16,5 +19,5 @@ COPY ./ /src/
 # Expose the specified port back to the host machine.
 EXPOSE 8080
 
-# Run the test suite.
+# Run the API server.
 CMD ["npm", "start"]

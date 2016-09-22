@@ -1,6 +1,5 @@
 .dockerignore
 .editorconfig
-.gitignore
 node_modules
 Dockerfile
 Makefile

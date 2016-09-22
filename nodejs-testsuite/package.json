@@ -1,12 +1,12 @@
 {
-  "name": "nodejs-test-suite-using-docker",
+  "name": "nodejs-testsuite",
   "version": "1.0.0",
   "description": "An example of running a NodeJS test suite via Docker.",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git@github.com:antwan1986/docker-using-nodejs.git"
+    "url": "git@github.com:antwan1986/docker-experiments.git"
   },
   "authors": [
     "Anthony Hastings <ar.hastings@gmail.com>"

@@ -1,5 +1,5 @@
-CONTAINER_TAG = anthony:fe-skeleton-test
-CONTAINER_NAME = fe-skeleton-test
+CONTAINER_TAG = anthony:nodejs-testsuite
+CONTAINER_NAME = nodejs-testsuite
 
 help:
 	@echo "build - Builds a docker image (with tag) based on the Dockerfile."

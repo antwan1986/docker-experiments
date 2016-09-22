@@ -16,8 +16,21 @@ build:
 # This command mounts the local js directory into the container so said
 # container is always using the latest source files when it runs. The `pwd`
 # command is also used to make things portable for other users.
+#
+# NOTE:
+# The node_modules folder is stored in a data volume, as data volumes copy in
+# the data from the built docker image before the `src` directory is mounted.
+# This stops the issue where mounting the current, node moduleless folder hides
+# the node_modules in the container.
 start:
-	docker run --tty --interactive --rm --volume `pwd`/js:/src/js --volume `pwd`/test-results:/src/test-results ${CONTAINER_TAG}
+	docker run --tty \
+           --interactive \
+           --rm \
+           --volume `pwd`/js:/src/js \
+           --volume `pwd`/test-results:/src/test-results \
+           --volume /src/node_modules \
+           --name ${CONTAINER_NAME} \
+           ${CONTAINER_TAG}
 
 bash:
 	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash

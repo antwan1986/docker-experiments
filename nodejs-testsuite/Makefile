@@ -1,5 +1,5 @@
 CONTAINER_TAG = anthony:nodejs-testsuite
-CONTAINER_NAME = nodejs-testsuite
+CONTAINER_NAME = anthony-nodejs-testsuite
 
 help:
 	@echo "build - Builds a docker image (with tag) based on the Dockerfile."
@@ -12,6 +12,10 @@ help:
 build:
 	docker build --tag ${CONTAINER_TAG} ./
 
+# NOTE:
+# This command mounts the local js directory into the container so said
+# container is always using the latest source files when it runs. The `pwd`
+# command is also used to make things portable for other users.
 start:
 	docker run --tty --interactive --rm --volume `pwd`/js:/src/js --volume `pwd`/test-results:/src/test-results ${CONTAINER_TAG}
 

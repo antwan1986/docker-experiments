@@ -1,11 +1,11 @@
 FROM node:4.5.0
 MAINTAINER Anthony Hastings <ar.hastings@gmail.com>
 
-# Copy over the package.json file to the container.
-ADD ./package.json /src/package.json
-
-# Change the working directory to our source folder.
+# Create a directory (to house our source files) and navigate to it.
 WORKDIR /src
+
+# Copy over the package.json file to the containers working directory.
+COPY ./package.json /src/package.json
 
 # Install our desired node packages.
 RUN npm install

@@ -47,8 +47,9 @@ stop:
 remove:
 	docker rm ${CONTAINER_NAME}
 
+# NOTE: This starts a new process on an already running container.
 bash:
-	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash
+	docker exec --tty --interactive ${CONTAINER_NAME} /bin/bash
 
 show-images:
 	docker images;

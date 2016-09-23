@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-api-detached",
+  "version": "1.0.0",
+  "description": "The NodeJS API example but in a detached container.",
+  "license": "MIT",
+  "private": true,
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:antwan1986/docker-experiments.git"
+  },
+  "authors": [
+    "Anthony Hastings <ar.hastings@gmail.com>"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "express": "4.14.0"
+  }
+}

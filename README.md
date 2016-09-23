@@ -12,6 +12,10 @@ experimentations that showcase or utilize a particular docker feature.
 port to a port on the host machine. This allows a channel of communication to
 the container.
 
+* [Node.js API (Detached)](./nodejs-api-detached/) - Virtually identical to the
+above code experiment except that this one also showcases how containers can be
+run in a detached mode.
+
 * [Node.js Test Suite](./nodejs-testsuite/) - Showcases mounting volumes which
 allows files written inside the docker container to be persisted back to the
 host machine. It also ensures that source files read by the container are 'live'

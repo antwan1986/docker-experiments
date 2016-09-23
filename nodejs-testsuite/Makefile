@@ -4,6 +4,7 @@ CONTAINER_NAME = anthony-nodejs-testsuite
 help:
 	@echo "build - Builds a docker image (with tag) based on the Dockerfile."
 	@echo "start - Creates a named docker container from the image."
+	@echo "run-script - Calls a specific NPM script instead of the Dockerfiles default."
 	@echo "stop - Stops and removes the docker container."
 	@echo "bash - Runs bash within the container by overriding 'CMD' with bash."
 	@echo "show-images - Shows all built docker images."
@@ -31,6 +32,19 @@ start:
            --volume /src/node_modules \
            --name ${CONTAINER_NAME} \
            ${CONTAINER_TAG}
+
+# EXAMPLE:
+# make run-script SCRIPT=pretest
+run-script:
+	docker run --tty \
+           --interactive \
+           --rm \
+           --volume `pwd`/js:/src/js \
+           --volume `pwd`/test-results:/src/test-results \
+           --volume /src/node_modules \
+           --name ${CONTAINER_NAME} \
+           ${CONTAINER_TAG} \
+           npm run-script $(SCRIPT)
 
 bash:
 	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash

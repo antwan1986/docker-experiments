@@ -5,7 +5,7 @@ help:
 	@echo "build - Builds a docker image (with tag) based on the Dockerfile."
 	@echo "start - Creates a named docker container from the image."
 	@echo "stop - Stops and removes the docker container."
-	@echo "bash - Runs bash within the container by overriding 'CMD' with bash."
+	@echo "bash - Creates a container and runs bash command rather than default."
 	@echo "show-images - Shows all built docker images."
 	@echo "show-containers - Shows all built docker containers."
 
@@ -32,6 +32,9 @@ start:
            --rm \
            --name ${CONTAINER_NAME} \
            ${CONTAINER_TAG}
+
+stop:
+	docker stop ${CONTAINER_NAME}
 
 bash:
 	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash

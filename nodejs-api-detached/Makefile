@@ -7,7 +7,7 @@ help:
 	@echo "start - Starts the stopped container in detach mode."
 	@echo "stop - Stops the docker container."
 	@echo "remove - Deletes the docker container (if it exists)."
-	@echo "bash - Runs bash within the container by overriding 'CMD' with bash."
+	@echo "bash - Runs bash within existing container by overriding default."
 	@echo "show-images - Shows all built docker images."
 	@echo "show-containers - Shows all built docker containers."
 

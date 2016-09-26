@@ -1,4 +1,4 @@
-# Node.js MongoDB Linking
+# Node.js / MongoDB (Linking)
 
 ## Introduction
 
@@ -41,11 +41,12 @@ After starting both docker containers you should be able to access
 [http://localhost:49876](http://localhost:49876) and see an Express container
 endpoint which is using data from the MongoDB container.
 
-It's worth noting that port mapping isn't used here when running a new
-container; the communication between containers is handled via a `link`
+It's worth noting that port mapping is used for the Express container so the
+host machine can access API endpoints, but port mapping isn't used to allow
+communication between containers; instead, this is achieved by using a `link`
 parameter.
 
-Using the linking parameter when running the Express container simply extracts
+Using the `link` parameter when running the Express container simply extracts
 the runtime information of the MongoDB container (its IP address, the exposed
 ports) and exposes that information into the Express container as environment
 variables and hosts file.

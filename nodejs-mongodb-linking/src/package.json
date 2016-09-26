@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-mongodb-linking",
+  "version": "1.0.0",
+  "description": "An example of linking containers (MongoDB and Node.js).",
+  "license": "MIT",
+  "private": true,
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:antwan1986/docker-experiments.git"
+  },
+  "authors": [
+    "Anthony Hastings <ar.hastings@gmail.com>"
+  ],
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "express": "4.14.0",
+    "mongodb": "2.2.10"
+  }
+}

@@ -5,7 +5,7 @@ help:
 	@echo "build - Builds and tags a docker image using the Dockerfile."
 	@echo "create - Creates and starts a named container in detached mode."
 	@echo "start - Starts the stopped container in detach mode."
-	@echo "stop - Stops the running named docker container."
+	@echo "stop - Stops the running named container."
 	@echo "remove - Removes the named container."
 	@echo "bash - Runs bash process within an already running named container."
 

@@ -4,7 +4,7 @@ CONTAINER_NAME = anthony-nodejs-api
 help:
 	@echo "build - Builds and tags a docker image using the Dockerfile."
 	@echo "create - Creates and starts a self-removing, named docker container."
-	@echo "stop - Stops the running named docker container."
+	@echo "stop - Stops the running named container."
 	@echo "bash - Creates and starts a self-removing container running bash."
 
 build:

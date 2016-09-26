@@ -2,12 +2,10 @@ CONTAINER_TAG = anthony:nodejs-api
 CONTAINER_NAME = anthony-nodejs-api
 
 help:
-	@echo "build - Builds a docker image (with tag) based on the Dockerfile."
-	@echo "start - Creates a named docker container from the image."
-	@echo "stop - Stops and removes the docker container."
-	@echo "bash - Creates a container and runs bash command rather than default."
-	@echo "show-images - Shows all built docker images."
-	@echo "show-containers - Shows all built docker containers."
+	@echo "build - Builds and tags a docker image using the Dockerfile."
+	@echo "create - Creates and starts a self-removing, named docker container."
+	@echo "stop - Stops the running named docker container."
+	@echo "bash - Creates and starts a self-removing container running bash."
 
 build:
 	docker build --tag ${CONTAINER_TAG} ./
@@ -25,7 +23,7 @@ build:
 # the data from the built docker image before the `src` directory is mounted.
 # This stops the issue where mounting the current, node moduleless folder hides
 # the node_modules in the container.
-start:
+create:
 	docker run --publish 49160:8080 \
            --volume `pwd`:/src \
            --volume /src/node_modules \
@@ -38,9 +36,3 @@ stop:
 
 bash:
 	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash
-
-show-images:
-	docker images;
-
-show-containers:
-	docker ps --all;

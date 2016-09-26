@@ -2,13 +2,10 @@ CONTAINER_TAG = anthony:nodejs-testsuite
 CONTAINER_NAME = anthony-nodejs-testsuite
 
 help:
-	@echo "build - Builds a docker image (with tag) based on the Dockerfile."
-	@echo "start - Creates a named docker container from the image."
-	@echo "run-script - Calls a specific NPM script instead of the Dockerfiles default."
-	@echo "stop - Stops and removes the docker container."
-	@echo "bash - Runs bash within the container by overriding 'CMD' with bash."
-	@echo "show-images - Shows all built docker images."
-	@echo "show-containers - Shows all built docker containers."
+	@echo "build - Builds and tags a docker image using the Dockerfile."
+	@echo "create - Creates and starts a self-removing, named docker container."
+	@echo "run-script - Runs specified NPM script instead of testing command."
+	@echo "bash - Creates and starts a self-removing container running bash."
 
 build:
 	docker build --tag ${CONTAINER_TAG} ./
@@ -23,7 +20,7 @@ build:
 # the data from the built docker image before the `src` directory is mounted.
 # This stops the issue where mounting the current, node moduleless folder hides
 # the node_modules in the container.
-start:
+create:
 	docker run --tty \
            --interactive \
            --rm \
@@ -48,9 +45,3 @@ run-script:
 
 bash:
 	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash
-
-show-images:
-	docker images;
-
-show-containers:
-	docker ps --all;

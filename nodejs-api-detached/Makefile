@@ -2,14 +2,12 @@ CONTAINER_TAG = anthony:nodejs-api-detached
 CONTAINER_NAME = anthony-nodejs-api-detached
 
 help:
-	@echo "build - Builds a docker image (with tag) based on the Dockerfile."
-	@echo "create - Creates a named container ready for being started."
+	@echo "build - Builds and tags a docker image using the Dockerfile."
+	@echo "create - Creates and starts a named container in detached mode."
 	@echo "start - Starts the stopped container in detach mode."
-	@echo "stop - Stops the docker container."
-	@echo "remove - Deletes the docker container (if it exists)."
-	@echo "bash - Runs bash within existing container by overriding default."
-	@echo "show-images - Shows all built docker images."
-	@echo "show-containers - Shows all built docker containers."
+	@echo "stop - Stops the running named docker container."
+	@echo "remove - Removes the named container."
+	@echo "bash - Runs bash process within an already running named container."
 
 build:
 	docker build --tag ${CONTAINER_TAG} ./
@@ -47,12 +45,5 @@ stop:
 remove:
 	docker rm ${CONTAINER_NAME}
 
-# NOTE: This starts a new process on an already running container.
 bash:
 	docker exec --tty --interactive ${CONTAINER_NAME} /bin/bash
-
-show-images:
-	docker images;
-
-show-containers:
-	docker ps --all;

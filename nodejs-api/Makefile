@@ -6,6 +6,7 @@ help:
 	@echo "create - Creates and starts a self-removing, named docker container."
 	@echo "stop - Stops the running named container."
 	@echo "bash - Creates and starts a self-removing container running bash."
+	@echo "logs - Get PID #1 logs for the named container."
 
 build:
 	docker build --tag ${CONTAINER_TAG} ./
@@ -36,3 +37,6 @@ stop:
 
 bash:
 	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash
+
+logs:
+	docker logs ${CONTAINER_NAME}

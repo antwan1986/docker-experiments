@@ -6,6 +6,7 @@ help:
 	@echo "create - Creates and starts a self-removing, named docker container."
 	@echo "run-script - Runs specified NPM script instead of testing command."
 	@echo "bash - Creates and starts a self-removing container running bash."
+	@echo "logs - Get PID #1 logs for the named container."
 
 build:
 	docker build --tag ${CONTAINER_TAG} ./
@@ -45,3 +46,6 @@ run-script:
 
 bash:
 	docker run --tty --interactive --rm ${CONTAINER_TAG} /bin/bash
+
+logs:
+	docker logs ${CONTAINER_NAME}

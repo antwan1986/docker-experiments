@@ -8,6 +8,7 @@ help:
 	@echo "stop - Stops the running named container."
 	@echo "remove - Removes the named container."
 	@echo "bash - Runs bash process within an already running named container."
+	@echo "logs - Get PID #1 logs for the named container."
 
 build:
 	docker build --tag ${CONTAINER_TAG} ./
@@ -47,3 +48,6 @@ remove:
 
 bash:
 	docker exec --tty --interactive ${CONTAINER_NAME} /bin/bash
+
+logs:
+	docker logs ${CONTAINER_NAME}

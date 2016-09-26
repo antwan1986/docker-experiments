@@ -2,26 +2,31 @@
 
 ## Introduction
 
-The repository runs the front-end skeleton test suite within a docker container
-and demonstrates the following:
+This experiment runs a
+[test suite](https://github.com/rehabstudio/fe-skeleton-testsuite) within a
+docker container and is a demonstration of the following:
 
-* Mount source files directory for always up to date runnings of tests.
-* Mount a results directory for writing test suite artifacts back to host.
-* Exits the docker process and returns the appropriate exit code on the host.
+* Running a self-removing docker container.
+* Mounting source files directory thus ensuring tests run against latest code.
+* Persisting test results created inside the docker container onto the host.
 
 ## Usage
 
-Ensure that [Docker](https://docs.docker.com/engine/installation/) is installed
-on your host machine. The experiment is interacted with entirely through `make`
-commands. To see a full list of available commands, run `make help`.
+The experiment is interacted with entirely through `make` commands. To see a
+full list of available commands, run `make help`.
 
 To build the docker image for containers to use, run the following:
 
 ```make build```
 
-To start up a docker container using the image above, run the following:
+To start the test suite by spinning up a container, run the following:
 
-```make start```
+```make create```
+
+You can run other npm scripts via a container by specifying them with the
+`run-script` command:
+
+```make run-script SCRIPT=pretest```
 
 ## Results
 

@@ -28,3 +28,8 @@ and are fully up to date with any changes made after the container was started.
 
 * [Node.js / MongoDB (Linking)](./nodejs-mongodb-linking/) - Showcases container
 linking between an Express application container and a MongoDB container.
+
+* [Node.js / MongoDB (Composed)](./nodejs-mongodb-composed/) - Almost a mirror
+of the other monggo example above, except this experiment is built and run via
+`docker-compose`. This showcases how the lifecycle can be managed, and how both
+containers can be spun up via a single command.

@@ -1,9 +1,14 @@
 // Loading dependencies.
+const bodyParser = require('body-parser');
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 
 // Creating an Express application.
 const app = express();
+
+// Ensuring that request body can be recognised in a few formats.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Defining port that the Express application will run from.
 const expressPort = 8080;
@@ -78,7 +83,7 @@ function prepopulateDatabase(database) {
  */
 function getEntries() {
     return new Promise(function(resolve) {
-        var collection = database.collection('guestbook');
+        const collection = database.collection('guestbook');
 
         collection.find().toArray().then(
             function(entries) {
@@ -88,12 +93,40 @@ function getEntries() {
     });
 };
 
+/**
+ * Saves a request to the guestbook collection.
+ *
+ * @param {Object} requestBody
+ * @return {Promise}
+ */
+function saveEntry(requestBody) {
+    return new Promise(function(resolve) {
+        const collection = database.collection('guestbook');
+
+        collection.insertOne({
+            name: requestBody.name,
+            message: requestBody.message
+        }).then(function() {
+            resolve();
+        });
+    });
+}
+
 // API Endpoint: Get all entries and return them as JSON.
 app.get('/', function(request, response) {
     getDatabase()
         .then(getEntries)
         .then(function(entries) {
             response.json(entries);
+        });
+});
+
+// API Endpoint: Save an entry then return it as JSON.
+app.post('/', function(request, response) {
+    getDatabase()
+        .then(saveEntry(request.body))
+        .then(function() {
+            response.json({success: true});
         });
 });
 

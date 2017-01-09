@@ -37,3 +37,31 @@ terminal process.
 After starting both docker containers via `docker-compose` commands, you should
 be able to access [http://localhost:49876](http://localhost:49876) and see an
 Express container endpoint which is using data from the MongoDB container.
+
+## Endpoints
+
+To make interacting with the API easier, it's recommended to use a tool such
+as [Postman](http://bit.ly/1HCOCwF) to make the calls; it makes setting headers
+and request bodies much easier to deal with.
+
+You can ensure that the API server is working and responding to requests by
+hitting the root of the server, which should return some JSON:
+
+```
+GET / HTTP/1.1
+Host: localhost:49876
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+```
+
+Once the server has been confirmed as working, you can also add an entry to the
+database as demonstrated below:
+
+```
+POST / HTTP/1.1
+Host: localhost:49876
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+name=Billy+Weaver&message=This+is+a+test+message.
+```

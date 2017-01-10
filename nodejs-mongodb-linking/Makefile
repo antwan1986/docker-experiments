@@ -24,6 +24,7 @@ help:
 # port mapping to the host machine here; that's handled by container linking.
 create-db:
 	docker run --detach \
+           --volume `pwd`/mongodb:/data/db \
            --name ${MONGODB_CONTAINER_NAME} \
            ${MONGODB_CONTAINER_TAG}
 

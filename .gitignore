@@ -222,8 +222,11 @@ sftp-config.json
 # Sphinx env artifacts
 docs/_build/doctrees/environment.pickle
 
-# Output by junit/cobertura via Karma for integration with Jenkins.
+# Output by junit/cobertura via Karma for integration with Jenkins
 test-results/
 
-# Default destination for image minification.
-img-min
+# Default destination for image minification
+img-min/
+
+# MongoDB data folders
+mongodb/

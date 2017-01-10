@@ -3,6 +3,7 @@
 .editorconfig
 .eslintrc.json
 node_modules
+mongodb
 Dockerfile
 Makefile
 README.md

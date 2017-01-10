@@ -11,6 +11,7 @@ demonstrates the following:
 * Running a detached docker container.
 * Using Makefile lifecycle commands to start, stop and remove a container.
 * Linking so the Express container can communicate to the MongoDB container.
+* Mount a local folder to the MongoDB container database folder for persistence.
 * Mounting source files directory which contains latest source code.
 * Exposing and mapping an internal container port to a host machine port.
 * Executing an additional process on the container to allow running bash.
